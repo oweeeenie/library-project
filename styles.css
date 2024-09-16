@@ -22,3 +22,13 @@ html {
     height: auto;
   }
 
+.book-display-container {
+  background-color: lightblue;
+  width: 100vw;
+  height: 97.5vh;
+}
+
+.book-display {
+background-color: lightpink;
+font-size: 1.5rem;
+}

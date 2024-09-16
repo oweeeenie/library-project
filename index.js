@@ -14,6 +14,7 @@ const pages = document.querySelector("#pages").value;
 const readStatus = document.querySelector("#readStatus").value;
 const newBook = new Book(title, author, pages, readStatus);
 myLibrary.push(newBook);
+displayBooks();
 }
 
 const bookForm = document.querySelector("#bookForm");
@@ -23,3 +24,12 @@ bookForm.addEventListener('submit', (event) => {
     addBookToLibrary();
 });
 
+function displayBooks() {
+    const bookDisplay = document.querySelector(".book-display");
+    bookDisplay.textContent = " ";
+    myLibrary.forEach(book => {
+        const displayBook = document.createElement("div")
+        displayBook.textContent = book.title + " by " + book.author + " pages: " + book.pages;
+        bookDisplay.appendChild(displayBook);
+    });
+};
