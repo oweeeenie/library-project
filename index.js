@@ -1,5 +1,5 @@
 const newBook = document.querySelector("#new-book")
-const bookForm = document.querySelector("#bookForm");
+const bookForm = document.querySelector(".form-container");
 
 newBook.addEventListener('click', (event) => {
     if (bookForm.style.display === 'none' || bookForm.style.display === "") {
@@ -37,9 +37,26 @@ function displayBooks() {
     const bookDisplay = document.querySelector(".book-display");
     bookDisplay.textContent = " ";
     myLibrary.forEach(book => {
-        const displayBook = document.createElement("div")
+       const bookContainer = document.createElement("div");
+        bookContainer.classList.add("book-container");
+
+        const titleElement = document.createElement("p");
+        titleElement.textContent = "Title: " + book.title;
+        bookContainer.appendChild(titleElement);
+
+        const authorElement = document.createElement("p");
+        authorElement.textContent = "Author: " + book.author;
+        bookContainer.appendChild(authorElement);
+
+        const pagesElement = document.createElement("p");
+        pagesElement.textContent = "Pages: " + book.pages;
+        bookContainer.appendChild(pagesElement);
+
+        const readStatusElement = document.createElement("p");
         let readStatusText = book.readStatus ? "Yes" : "No";
-        displayBook.textContent = book.title + " by " + book.author + " pages: " + book.pages + " Read: " + readStatusText
-        bookDisplay.appendChild(displayBook);
+        readStatusElement.textContent = "Read: " + readStatusText;
+        bookContainer.appendChild(readStatusElement);
+
+        bookDisplay.appendChild(bookContainer);
     });
-};
+}
