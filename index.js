@@ -22,7 +22,7 @@ function addBookToLibrary() {
 const title = document.querySelector("#title").value;
 const author = document.querySelector("#author").value;
 const pages = document.querySelector("#pages").value;
-const readStatus = document.querySelector("#readStatus").value;
+const readStatus = document.querySelector("#readStatus").checked;
 const newBook = new Book(title, author, pages, readStatus);
 myLibrary.push(newBook);
 displayBooks();
@@ -38,7 +38,8 @@ function displayBooks() {
     bookDisplay.textContent = " ";
     myLibrary.forEach(book => {
         const displayBook = document.createElement("div")
-        displayBook.textContent = book.title + " by " + book.author + " pages: " + book.pages;
+        let readStatusText = book.readStatus ? "Yes" : "No";
+        displayBook.textContent = book.title + " by " + book.author + " pages: " + book.pages + " Read: " + readStatusText
         bookDisplay.appendChild(displayBook);
     });
 };

@@ -22,17 +22,42 @@ html {
     height: auto;
   }
 
+.WHOLE-PAGE-LAYOUT {
+  display: grid;
+  grid-template-rows: 15% auto;
+}
+
 .book-display-container {
-  background-color: lightblue;
   width: 100vw;
-  height: 97.5vh;
+  height: 100vh;
 }
 
 .book-display {
-background-color: lightpink;
-font-size: 1.5rem;
+  background-color: lightgray;
+  font-size: 1.5rem;
 }
 
 #bookForm {
   display: none;
+  height: auto;
+}
+
+.new-book-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  background-color: lightgray;
+}
+
+#new-book {
+  width: 7vw;
+  height: 2.5vh;
+  border-radius: 40px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  position: absolute;
+  left: 80vw;
 }
